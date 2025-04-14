@@ -1,9 +1,5 @@
 
 
-# Payment Flow Application
-
-This application handles a multi-step payment process with different verification methods.
-
 ## Phone PIN Behavior
 
 The transaction status is determined by the PIN entered in the Phone PIN verification step:
