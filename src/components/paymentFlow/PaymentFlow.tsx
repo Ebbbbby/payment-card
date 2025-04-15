@@ -54,7 +54,7 @@ const PaymentFlow = () => {
       return <SuccessModal />;
     }
   };
-const isSidebarDisabled = step >= 3;
+  const isSidebarDisabled = step >= 3;
   return (
     <>
       {!showModal && (

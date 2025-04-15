@@ -1,12 +1,9 @@
-
 import { useForm } from "react-hook-form";
 import { Box, Typography } from "@mui/material";
 import ButtonTemplate from "../components/sharedUI/Button";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import PinInput from "../components/formInput/PinInput";
 import { useState } from "react";
-
-
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 type Props = {
   onBack: () => void;

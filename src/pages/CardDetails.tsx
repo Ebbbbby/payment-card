@@ -46,7 +46,7 @@ const CardDetails = ({ onNext }: Props) => {
 
   const onSubmit = (data: FormValues) => {
     console.log(data);
-     onNext();
+    onNext();
   };
 
   const watchFields = watch(["cardNumber", "expiryDate", "cvv"]);
@@ -85,9 +85,7 @@ const CardDetails = ({ onNext }: Props) => {
                 helperText={errors.cardNumber?.message}
                 sx={{
                   "& .MuiInputBase-root": {
-                    backgroundColor: watchFields[0]
-                      ? "transparent"
-                      : "",
+                    backgroundColor: watchFields[0] ? "transparent" : "",
                   },
                 }}
               />
@@ -119,9 +117,7 @@ const CardDetails = ({ onNext }: Props) => {
                     helperText={errors.expiryDate?.message}
                     sx={{
                       "& .MuiInputBase-root": {
-                        backgroundColor: watchFields[1]
-                          ? "transparent"
-                          : "",
+                        backgroundColor: watchFields[1] ? "transparent" : "",
                       },
                     }}
                   />
@@ -161,9 +157,7 @@ const CardDetails = ({ onNext }: Props) => {
                       helperText={errors.cvv?.message}
                       sx={{
                         "& .MuiInputBase-root": {
-                          backgroundColor: watchFields[2]
-                            ? "transparent"
-                            : "",
+                          backgroundColor: watchFields[2] ? "transparent" : "",
                         },
                       }}
                     />
@@ -173,37 +167,37 @@ const CardDetails = ({ onNext }: Props) => {
             </Grid>
           </Grid>
         </Box>
+
+        <Controller
+          name="rememberCard"
+          control={control}
+          render={({ field }) => (
+            <FormControlLabel
+              control={
+                <Checkbox
+                  {...field}
+                  size="small"
+                  sx={{
+                    "&.Mui-checked": {
+                      border: "1px solid primary.main",
+                    },
+                  }}
+                />
+              }
+              label={
+                <Typography variant="body2">
+                  Remember this card next time
+                </Typography>
+              }
+              sx={{ mb: 2, fontSize: "14px", fontWeight: 400 }}
+            />
+          )}
+        />
+
+        <ButtonTemplate type="submit" disabled={!isValid}>
+          Continue
+        </ButtonTemplate>
       </Grid>
-
-      <Controller
-        name="rememberCard"
-        control={control}
-        render={({ field }) => (
-          <FormControlLabel
-            control={
-              <Checkbox
-                {...field}
-                size="small"
-                sx={{
-                  "&.Mui-checked": {
-                    border: "1px solid primary.main",
-                  },
-                }}
-              />
-            }
-            label={
-              <Typography variant="body2">
-                Remember this card next time
-              </Typography>
-            }
-            sx={{ mb: 2, fontSize: "14px", fontWeight: 400 }}
-          />
-        )}
-      />
-
-      <ButtonTemplate type="submit" disabled={!isValid}>
-        Continue
-      </ButtonTemplate>
     </form>
   );
 };

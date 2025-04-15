@@ -1,4 +1,4 @@
-import { Box, Dialog, IconButton, Typography } from "@mui/material";
+import { Box, Dialog, IconButton, Typography, useMediaQuery } from "@mui/material";
 import Header from "./Header";
 import PaymentSidebar from "./Sidenav";
 import { Close } from "@mui/icons-material";
@@ -21,6 +21,8 @@ const LayoutWrapper = ({
   disableSidebar,
 }: LayoutWrapperProps) => {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
 
   return (
     <>
@@ -35,10 +37,7 @@ const LayoutWrapper = ({
               overflow: "visible",
               backgroundColor: "#fff",
               boxShadow: 1,
-              [theme.breakpoints.down("sm")]: {
-                overflowX: "auto",
-                maxWidth: "calc(100vw - 32px)",
-              },
+              zIndex: 1000,
             },
           },
         }}
@@ -49,7 +48,6 @@ const LayoutWrapper = ({
             top: -10,
             right: -40,
             borderRadius: "50%",
-            zIndex: 2,
           }}
         >
           <IconButton onClick={onClose}>
@@ -59,17 +57,23 @@ const LayoutWrapper = ({
 
         <Box
           width="700px"
+
           sx={{
             [theme.breakpoints.down("sm")]: {
-              width: "700px",
-              minWidth: "700px",
+              width: "100%",
+              minWidth: "100%",
             },
           }}
         >
           <Header />
-          <Box display="flex">
-            <PaymentSidebar disable = {disableSidebar}/>
-            <Box flexGrow={1} p={2} sx={{ width: "100px" }}>
+          
+          <Box display="flex"  flexDirection={{ xs: "column", sm: "row" }}>
+            <PaymentSidebar disable={disableSidebar} />
+            <Box
+              flexGrow={1}
+              p={2}
+              sx={{ width: "100%", padding: isSmallScreen ?"8px":'15px'}}
+            >
               <Typography>{title}</Typography>
               {children}
             </Box>
