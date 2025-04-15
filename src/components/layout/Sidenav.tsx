@@ -24,12 +24,13 @@ const PaymentSidebar = ({ disable = false }: PaymentSidebarProps) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
+
   return (
     <Box
       sx={{
         borderBottom: { xs: "1px solid #F1F2F4", sm: "none" },
         borderRight: { xs: "none", sm: "1px solid #F1F2F4" },
-        width: { xs: "300px", sm: "286px" },
+        width: { xs: "300px", sm: "286px"  },
         opacity: disable ? 0.5 : 1,
         pointerEvents: disable ? "none" : "auto",
         backgroundColor: "#fff",
@@ -48,7 +49,7 @@ const PaymentSidebar = ({ disable = false }: PaymentSidebarProps) => {
           overflowX: isSmallScreen ? "auto" : "visible",
           gap: 1,
           pb: 1,
-          width: isSmallScreen ? "330px" : "auto",
+          width: isSmallScreen  ? "100%" : "auto",
         }}
       >
         <Stack
