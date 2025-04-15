@@ -38,6 +38,7 @@ const LayoutWrapper = ({
               backgroundColor: "#fff",
               boxShadow: 1,
               zIndex: 1000,
+
             },
           },
         }}
@@ -66,7 +67,7 @@ const LayoutWrapper = ({
           }}
         >
           <Header />
-          
+
           <Box display="flex"  flexDirection={{ xs: "column", sm: "row" }}>
             <PaymentSidebar disable={disableSidebar} />
             <Box

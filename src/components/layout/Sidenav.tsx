@@ -30,7 +30,9 @@ const PaymentSidebar = ({ disable = false }: PaymentSidebarProps) => {
       sx={{
         borderBottom: { xs: "1px solid #F1F2F4", sm: "none" },
         borderRight: { xs: "none", sm: "1px solid #F1F2F4" },
-        width: { xs: "300px", sm: "286px"  },
+        width: { xs: "300px", sm: "400px" },
+        minWidth: isSmallScreen ? "100%" : "",
+        marginY:isSmallScreen ? 2 : 0,
         opacity: disable ? 0.5 : 1,
         pointerEvents: disable ? "none" : "auto",
         backgroundColor: "#fff",
@@ -39,17 +41,19 @@ const PaymentSidebar = ({ disable = false }: PaymentSidebarProps) => {
     >
       <Typography
         variant="body2"
-        sx={{ mb: 2, textAlign: { xs: "center", sm: "left" } }}
+        sx={{ mb: 2, textAlign: { xs: "left", sm: "left" ,paddingLeft: isSmallScreen? 8: 12} }}
       >
         Payment options
       </Typography>
       <Box
         sx={{
           display: "flex",
-          overflowX: isSmallScreen ? "auto" : "visible",
+          overflowX: isSmallScreen ? "auto" : "hidden",
           gap: 1,
           pb: 1,
-          width: isSmallScreen  ? "100%" : "auto",
+
+          borderTop: isSmallScreen? "1px solid #F1F2F4":'',
+          zIndex: -1000,
         }}
       >
         <Stack
