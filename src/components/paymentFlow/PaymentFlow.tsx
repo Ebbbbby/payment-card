@@ -70,6 +70,7 @@ const PaymentFlow = () => {
       >
         {renderModalContent()}
       </Dialog>
+      
     </>
   );
 };

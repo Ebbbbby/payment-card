@@ -21,7 +21,8 @@ const TransactionStatus = ({ transactionStatus, onDone }: Props) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "50vh",
+
+        width: "100%",
       }}
     >
       <InfoCard
@@ -29,7 +30,10 @@ const TransactionStatus = ({ transactionStatus, onDone }: Props) => {
         title="Checking transaction status"
         text="Please don’t leave this page"
       />
-      <CircularProgress />
+      <Box marginBottom={10}>
+          <CircularProgress />
+      </Box>
+
     </Box>
   );
 };
